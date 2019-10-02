@@ -1,0 +1,6 @@
+#we can follow the instructions specified in the document or elase we can
+#download the yaml file and modified the parameters based on our requirement.
+#https://metallb.universe.tf/installation/
+#kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.8.1/manifests/metallb.yaml
+#After This follow the configurations steps specified: https://metallb.universe.tf/configuration/
+#kubectl expose deploy nginx --port 80 --type Loadbalancer

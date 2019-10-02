@@ -1,0 +1,20 @@
+#Login to Docker
+#docker login
+#cat the file ~/.docker/config.json
+#Create a secret using this JSON file
+# or we can create secret using the username and password of the docker
+#kubectl create secret docker-registry regcred --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+#Example for Docker HUB
+#kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=sudhams483 --docker-password=XXXXXXX --docker-email=dubareddy.383@gmail.com
+#Inorder to see the output: kubectl get secret regcred --output="jsonpath={.data.\.dockerconfigjson}" | base64 --decode
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apache2-private
+spec:
+  containers:
+  - name: private-nginx-container
+    image: sudhams483/apache2
+    imagePullPolicy: IfNotPresent
+  imagePullSecrets:
+  - name: my-image

@@ -1,0 +1,20 @@
+apiVersion: apps/v1 #extensions/v1beta1 for before v1.16
+ kind: ReplicaSet
+ metadata:
+   name: test-rs
+ spec:
+   replicas: 3
+   selector:
+     matchLabels:
+       app: test-app
+   template:
+     metadata:
+       labels:
+         app: test-app
+         environment: dev
+     spec:
+       containers:
+       - name: nginx
+         image: nginx:1.7.9
+         ports:
+         - containerPort: 80
